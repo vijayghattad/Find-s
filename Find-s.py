@@ -6,7 +6,7 @@ import pandas as pd #helps in accessing of data
 data = pd.read_csv('pd1.csv', sep=',', header=None)  
 
 S=['?','?','?','?','?','?']
-X = data.values[:, 0:6]
+X = data.values[:, 0:6]     #data without labels
 
 
 #generalization function where Exin->example in ,S_in->specific in
@@ -21,9 +21,11 @@ def Generalize(S_in, Exin):
 
 datalen = len(data)
 for i in range(datalen):
-    ex=data.values[i,:]
+   #Assuming the first positive example
+    ex=data.values[i,:]    
     if(ex[-1]=='Yes'):
         S = X[i,:]
+         #print(s)
         break
     else:
         S = X[i+1,:]  
